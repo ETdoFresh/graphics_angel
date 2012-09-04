@@ -7,6 +7,7 @@ set (VERSION_MINOR 0)
 # #set(CMAKE_CXX_FLAGS "-g2")
 # #set(CMAKE_CXX_FLAGS "-O3")
 # following sets the variables OPENGL_INCLUDE_DIR amd OPENGL_LIBRARIES
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMake/Modules/")
 find_package(OpenGL)
 # following sets the variables GLUT_INCLUDE_DIR amd GLUT_LIBRARIES
 find_package(GLUT)
