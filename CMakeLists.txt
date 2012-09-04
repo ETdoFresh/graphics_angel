@@ -73,6 +73,13 @@ add_library (angel_common  ${COMMON} )
 
 set (ALL_LIBS angel_common ${GRAPHICSLIBS})
 
+if (APPLE)
+	set (EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/shaders/MAC_VERSIONS)
+else ()
+	set (EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/shaders/WINDOWS_VERSIONS)
+endif ()
+
+
 subdirs( CHAPTER02_CODE 
 		CHAPTER03_CODE 
 		CHAPTER04_CODE 
