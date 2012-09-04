@@ -170,16 +170,18 @@ int main(int argc, char** argv)
     glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH);
     glutInitWindowSize(512, 512);
 
-	glutInitContextVersion( 3, 2 );
-	glutInitContextProfile( GLUT_CORE_PROFILE );
+    glutInitContextVersion( 3, 2 );
+    glutInitContextProfile( GLUT_CORE_PROFILE );
 
     glutCreateWindow("Color Cube");
     glutDisplayFunc(display);
     glutMouseFunc(mouse);
     glutIdleFunc(spinCube);
     glutKeyboardFunc(mykey);
-
-	glewInit();
+#ifdef GLEW_EXPERIMENTAL
+    glewExperimental = GL_TRUE;
+#endif
+    glewInit();
     init();
 
     glEnable(GL_DEPTH_TEST);

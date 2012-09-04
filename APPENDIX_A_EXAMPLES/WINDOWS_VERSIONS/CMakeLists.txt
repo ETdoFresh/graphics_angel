@@ -1,13 +1,13 @@
 set (APPENDIX_CODE
-	append_example_a10
-	append_example_a2
-	append_example_a3
-	append_example_a4
-	append_example_a5
-	append_example_a6
-	append_example_a7
-	append_example_a8
-	append_example_a9 )
+	append_example10
+	append_example2
+	append_example3
+	append_example4
+	append_example5
+	append_example6
+	append_example7
+	append_example8
+	append_example9 )
 
 set (GRAPHICS_PROGRAMS
 	${APPENDIX_CODE} )

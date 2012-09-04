@@ -1,6 +1,6 @@
 #define N 36
 
-#include "Angel.h";
+#include "Angel.h"
 
 typedef Angel::vec4 point4;
 
@@ -200,8 +200,9 @@ main(int argc, char **argv)
     glutInitContextProfile( GLUT_CORE_PROFILE );
 
     glutCreateWindow("colorcube");
-
-
+#ifdef GLEW_EXPERIMENTAL
+    glewExperimental = GL_TRUE;
+#endif
     glewInit();
 
     program  = InitShader("vshader72.glsl", "fshader72.glsl");

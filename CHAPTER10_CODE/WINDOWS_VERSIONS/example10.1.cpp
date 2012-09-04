@@ -11,12 +11,17 @@ typedef GLfloat     point3[3];
 
 const int NumTimesToSubdivide = 3;
 const int PatchesPerSubdivision = 4;
-const int NumQuadsPerPatch =
-    (int) pow( PatchesPerSubdivision, NumTimesToSubdivide );
-const int NumTriangles =
-    ( NumTeapotPatches * NumQuadsPerPatch * 2 /* triangles / quad */ );
-const int NumVertices =
-    ( NumTriangles * 3 /* vertices / triangle */ );
+//const int NumQuadsPerPatch =
+ //   (int) pow( PatchesPerSubdivision, NumTimesToSubdivide );
+const int NumQuadsPerPatch = 64;
+
+//const int NumTriangles =
+ //   ( NumTeapotPatches * NumQuadsPerPatch * 2 /* triangles / quad */ );
+//const int NumVertices =
+//    ( NumTriangles * 3 /* vertices / triangle */ );
+
+const int NumTriangles = 32*64*2;
+const int NumVertices = 32*64*2*3;
 
 int     Index = 0;
 point4  points[NumVertices];
@@ -219,7 +224,9 @@ main( int argc, char *argv[] )
     glutInitContextVersion( 3, 2 );
     glutInitContextProfile( GLUT_CORE_PROFILE );
     glutCreateWindow( "teapot" );
-
+#ifdef GLEW_EXPERIMENTAL
+    glewExperimental = GL_TRUE;
+#endif
     glewInit();
 
     init();

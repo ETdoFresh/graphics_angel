@@ -182,10 +182,12 @@ int main(int argc, char** argv)
     glutInitWindowSize(512, 512);
 
     glutInitContextVersion( 3, 2 );
-	glutInitContextProfile( GLUT_CORE_PROFILE );
+    glutInitContextProfile( GLUT_CORE_PROFILE );
     glutCreateWindow("Color Cube");
-
-	glewInit();
+#ifdef GLEW_EXPERIMENTAL
+    glewExperimental = GL_TRUE;
+#endif
+    glewInit();
     init();
 
     glutDisplayFunc(display);

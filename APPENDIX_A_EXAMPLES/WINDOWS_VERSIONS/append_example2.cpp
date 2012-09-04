@@ -91,6 +91,9 @@ main( int argc, char **argv )
     glutInitContextProfile( GLUT_CORE_PROFILE );
 
     glutCreateWindow( "Sierpinski Gasket" );
+#ifdef GLEW_EXPERIMENTAL
+    glewExperimental = GL_TRUE;
+#endif
 
     glewInit();
 
