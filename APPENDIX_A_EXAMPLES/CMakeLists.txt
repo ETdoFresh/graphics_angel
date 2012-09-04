@@ -1,0 +1,5 @@
+if (WIN32)
+	subdirs( WINDOWS_VERSIONS )
+else (WIN32)
+	subdirs( MAC_VERSIONS )
+endif (WIN32)
