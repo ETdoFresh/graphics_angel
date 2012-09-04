@@ -47,7 +47,7 @@ divide_tetra( const vec3& a, const vec3& b,
         divide_tetra( a, v0, v1, v2, count - 1 );
         divide_tetra( v0, b, v3, v5, count - 1 );
         divide_tetra( v1, v3, c, v4, count - 1 );
-	    divide_tetra( v2, v4, v5, d count - 1 );
+	    divide_tetra( v2, v4, v5, d, count - 1 );
     }
     else {
         tetra( a, b, c, d );    // draw tetrahedron at end of recursion

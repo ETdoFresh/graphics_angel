@@ -1,5 +1,5 @@
-if (WIN32)
+if (NOT APPLE)
 	subdirs( WINDOWS_VERSIONS )
-else (WIN32)
+else ()
 	subdirs( MAC_VERSIONS )
-endif (WIN32)
+endif ()
