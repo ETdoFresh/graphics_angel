@@ -50,6 +50,12 @@
 
 namespace Angel {
 
+// Added by Chris Summa as helper to getEnvironmentVariable
+std::string charToString ( char* cPointer );
+ 
+// Added by Chris Summa for generalization of location of shaders
+std::string getEnvironmentVariable ( const std::string& _evname );
+
 //  Helper function to load vertex and fragment shader files
 GLuint InitShader( const char* vertexShaderFile,
 		   const char* fragmentShaderFile );

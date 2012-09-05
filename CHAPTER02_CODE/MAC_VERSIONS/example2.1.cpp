@@ -46,7 +46,17 @@ init( void )
     glBufferData( GL_ARRAY_BUFFER, sizeof(points), points, GL_STATIC_DRAW );
 
     // Load shaders and use the resulting shader program
-    GLuint program = InitShader( "vshader21.glsl", "fshader21.glsl" );
+	std::string evname = "ANGELDIR";
+	std::string path = getEnvironmentVariable(evname);
+	path += "/shaders/";
+#ifdef __APPLE__
+	path += "/MAC_VERSIONS/";
+#else
+	path += "/WINDOWS_VERSIONS/";
+#endif
+	std::string vshader = path + "vshader21.glsl";
+	std::string fshader = path + "fshader21.glsl";
+    GLuint program = InitShader( vshader.c_str(), fshader.c_str() );
     glUseProgram( program );
 
     // Initialize the vertex position attribute from the vertex shader

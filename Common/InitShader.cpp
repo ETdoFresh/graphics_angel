@@ -3,6 +3,32 @@
 
 namespace Angel {
 
+// added by Chris Summa
+std::string charToString ( char* cPointer )
+{
+    std::string EVstring;
+    for (;*cPointer != '\0'; cPointer++)
+    {
+        EVstring += *cPointer;
+    }
+    return EVstring;
+}
+
+// added by Chris Summa
+std::string getEnvironmentVariable ( const std::string& _evname )
+{
+    const char* convEVName = _evname.c_str();
+    char* pEVString = getenv(convEVName);
+    if (pEVString == 0)
+    {   std::cout << "Environment variable " << _evname << " undefined." << std::endl;
+        std::cout << "Please set it properly and re-execute the program." << std::endl;
+        exit(1);
+    }
+    std::string EVstring = charToString(pEVString);
+    return EVstring;
+}
+
+
 // Create a NULL-terminated string by reading the provided file
 static char*
 readShaderSource(const char* shaderFile)
