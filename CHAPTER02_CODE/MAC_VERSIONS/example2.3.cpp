@@ -34,8 +34,13 @@ init( void )
 
     // Create a vertex array object
     GLuint vao;
+#ifdef __APPLE__
     glGenVertexArraysAPPLE( 1, &vao );
     glBindVertexArrayAPPLE( vao );
+#else
+    glGenVertexArrays( 1, vao );
+    glBindVertexArray( vao[0] );
+#endif
 
     // Create and initialize a buffer object
     GLuint buffer;
@@ -44,7 +49,17 @@ init( void )
     glBufferData( GL_ARRAY_BUFFER, sizeof(points), points, GL_STATIC_DRAW );
 
     // Load shaders and use the resulting shader program
-    GLuint program = InitShader( "vshader23.glsl", "fshader23.glsl" );
+	std::string evname = "ANGELDIR";
+	std::string path = getEnvironmentVariable(evname);
+	path += "/shaders/";
+#ifdef __APPLE__
+	path += "/MAC_VERSIONS/";
+#else
+	path += "/WINDOWS_VERSIONS/";
+#endif
+	std::string vshader = path + "vshader23.glsl";
+	std::string fshader = path + "fshader23.glsl";
+    GLuint program = InitShader( vshader.c_str(), fshader.c_str() );
     glUseProgram( program );
 
     // Initialize the vertex position attribute from the vertex shader
@@ -86,7 +101,17 @@ main( int argc, char **argv )
     glutInit( &argc, argv );
     glutInitDisplayMode( GLUT_RGBA );
     glutInitWindowSize( 512, 512 );
+#ifndef __APPLE__
+	glutInitContextVersion(3, 2);
+    glutInitContextProfile(GLUT_CORE_PROFILE);
+#endif
     glutCreateWindow( "Simple GLSL example" );
+#ifdef GLEW_EXPERIMENTAL
+    glewExperimental = GL_TRUE;
+#endif
+#ifndef __APPLE__
+    glewInit();
+#endif
 
     init();
 

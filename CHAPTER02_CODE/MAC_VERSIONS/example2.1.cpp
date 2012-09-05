@@ -98,7 +98,6 @@ main( int argc, char **argv )
     glutInit( &argc, argv );
     glutInitDisplayMode( GLUT_RGBA );
     glutInitWindowSize( 512, 512 );
-
 #ifndef __APPLE__
 	glutInitContextVersion(3, 1);//3.1 fixes the need for glew experimental = true line
     glutInitContextProfile(GLUT_CORE_PROFILE);
