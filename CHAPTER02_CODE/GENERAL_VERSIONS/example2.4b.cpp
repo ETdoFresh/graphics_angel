@@ -41,13 +41,13 @@ divide_tetra( const vec3& a, const vec3& b,
         vec3 v0 = ( a + b ) / 2.0;
         vec3 v1 = ( a + c ) / 2.0;
         vec3 v2 = ( a + d ) / 2.0;
-	vec3 v3 = ( b + c ) / 2.0;
-	vec3 v4 = ( c + d ) / 2.0;
-	vec3 v5 = ( b + d ) / 2.0;
+        vec3 v3 = ( b + c ) / 2.0;
+        vec3 v4 = ( c + d ) / 2.0;
+        vec3 v5 = ( b + d ) / 2.0;
         divide_tetra( a, v0, v1, v2, count - 1 );
         divide_tetra( v0, b, v3, v5, count - 1 );
         divide_tetra( v1, v3, c, v4, count - 1 );
-	divide_tetra( v2, v4, v5, d, count - 1 );
+        divide_tetra( v2, v4, v5, d, count - 1 );
     }
     else {
         tetra( a, b, c, d );    // draw tetrahedron at end of recursion
@@ -72,8 +72,13 @@ init( void )
 
     // Create a vertex array object
     GLuint vao;
+#ifdef __APPLE__
     glGenVertexArraysAPPLE( 1, &vao );
     glBindVertexArrayAPPLE( vao );
+#else
+    glGenVertexArrays( 1, &vao );
+    glBindVertexArray( vao );
+#endif
 
     // Create and initialize a buffer object
     GLuint buffer;
@@ -85,7 +90,17 @@ init( void )
     glBufferData( GL_ARRAY_BUFFER, sizeof(points), points, GL_STATIC_DRAW );
 
     // Load shaders and use the resulting shader program
-    GLuint program = InitShader( "vshader24b.glsl", "fshader24b.glsl" );
+	std::string evname = "ANGELDIR";
+	std::string path = getEnvironmentVariable(evname);
+	path += "/shaders/";
+#ifdef __APPLE__
+	path += "/MAC_VERSIONS/";
+#else
+	path += "/WINDOWS_VERSIONS/";
+#endif
+	std::string vshader = path + "vshader24b.glsl";
+	std::string fshader = path + "fshader24b.glsl";
+    GLuint program = InitShader( vshader.c_str(), fshader.c_str() );
     glUseProgram( program );
 
     // Initialize the vertex position attribute from the vertex shader    
@@ -129,7 +144,17 @@ main( int argc, char **argv )
     glutInit( &argc, argv );
     glutInitDisplayMode( GLUT_RGBA | GLUT_DEPTH );
     glutInitWindowSize( 512, 512 );
+#ifndef __APPLE__
+	glutInitContextVersion(3, 2);
+    glutInitContextProfile(GLUT_CORE_PROFILE);
+#endif
     glutCreateWindow( "Simple GLSL example" );
+#ifdef GLEW_EXPERIMENTAL
+    glewExperimental = GL_TRUE;
+#endif
+#ifndef __APPLE__
+    glewInit();
+#endif
 
     init();
 
