@@ -10,7 +10,11 @@ set(CMAKE_CXX_FLAGS "-g2")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMake/Modules/")
 find_package(OpenGL)
 # following sets the variables GLUT_INCLUDE_DIR amd GLUT_LIBRARIES
-find_package(GLUT)
+if (NOT WIN32)
+ find_package(GLUT)
+else ()
+ find_package(LOCAL_GLUT)
+endif ()
 
 IF (NOT APPLE)
 	find_package(GLEW)
