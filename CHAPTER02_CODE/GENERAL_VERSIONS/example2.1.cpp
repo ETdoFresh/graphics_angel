@@ -46,16 +46,16 @@ init( void )
     glBufferData( GL_ARRAY_BUFFER, sizeof(points), points, GL_STATIC_DRAW );
 
     // Load shaders and use the resulting shader program
-	std::string evname = "ANGELDIR";
-	std::string path = getEnvironmentVariable(evname);
-	path += "/shaders/";
+    std::string evname = "ANGELDIR";
+    std::string path = getEnvironmentVariable(evname);
+    path += "/shaders/";
 #ifdef __APPLE__
-	path += "/MAC_VERSIONS/";
+    path += "/MAC_VERSIONS/";
 #else
-	path += "/WINDOWS_VERSIONS/";
+    path += "/WINDOWS_VERSIONS/";
 #endif
-	std::string vshader = path + "vshader21.glsl";
-	std::string fshader = path + "fshader21.glsl";
+    std::string vshader = path + "vshader21.glsl";
+    std::string fshader = path + "fshader21.glsl";
     GLuint program = InitShader( vshader.c_str(), fshader.c_str() );
     glUseProgram( program );
 
@@ -99,7 +99,7 @@ main( int argc, char **argv )
     glutInitDisplayMode( GLUT_RGBA );
     glutInitWindowSize( 512, 512 );
 #ifndef __APPLE__
-	glutInitContextVersion(3, 2);
+    glutInitContextVersion(3, 2);
     glutInitContextProfile(GLUT_CORE_PROFILE);
 #endif
     glutCreateWindow( "Sierpinski Gasket" );
@@ -110,7 +110,7 @@ main( int argc, char **argv )
     glewInit();
 #endif
 
-	init();
+    init();
 
     glutDisplayFunc( display );
     glutKeyboardFunc( keyboard );
