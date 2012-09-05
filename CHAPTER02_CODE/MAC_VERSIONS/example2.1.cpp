@@ -30,13 +30,13 @@ init( void )
     }
 
     // Create a vertex array object
-    GLuint vao[1];
+    GLuint vao;
 #ifdef __APPLE__
-    glGenVertexArraysAPPLE( 1, vao );
-    glBindVertexArrayAPPLE( vao[0] );
+    glGenVertexArraysAPPLE( 1, &vao );
+    glBindVertexArrayAPPLE( vao );
 #else
-    glGenVertexArrays( 1, vao );
-    glBindVertexArray( vao[0] );
+    glGenVertexArrays( 1, &vao );
+    glBindVertexArray( vao );
 #endif
 
     // Create and initialize a buffer object
