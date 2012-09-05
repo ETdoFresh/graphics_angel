@@ -38,8 +38,8 @@ init( void )
     glGenVertexArraysAPPLE( 1, &vao );
     glBindVertexArrayAPPLE( vao );
 #else
-    glGenVertexArrays( 1, vao );
-    glBindVertexArray( vao[0] );
+    glGenVertexArrays( 1, &vao );
+    glBindVertexArray( vao );
 #endif
 
     // Create and initialize a buffer object

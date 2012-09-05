@@ -1,6 +1,6 @@
 #version 150
 
-in vec3 vPosition;
+in vec4 vPosition;
 out vec4 color;
 
 void
