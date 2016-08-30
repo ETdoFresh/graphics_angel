@@ -1,3 +1,41 @@
+README FROM CHRIS SUMMA:
+
+I have modified Dr. Angel's code in such a way that the same program should be compilable on either MacOS, Windows, or Linux.  I've also put all this under the control of CMake, a meta-build system that checks your environment and automatically builds your makefiles.  Here's what to do after you've installed CMake on your system:
+
+1) make a subdirectory of graphics_angel called "build"
+
+    mkdir build
+
+2) cd into that directory
+
+    cd build
+
+3) execute CMake using the CMakfiles.txt one level below
+
+    cmake ..
+
+4) fix any errors or install any missing libraries
+
+5) from within the build subdirectory issue issue the make command
+
+    make
+
+6) this should build your binaries and put them in graphics_angel/bin
+
+7) add that bin diretory to your path
+
+    export PATH=$PATH:/path/to/where/it/lives/graphics_angel/bin
+
+8) set the environment variable ANGELDIR to point to graphics_angel
+
+    i.e. in your .bash_profile in your home directory add the line
+
+    export ANGELDIR=/path/to/where/it/lives/graphics_angel
+
+
+
+README FROM EDWARD ANGEL:
+
 The code in these directories is organized by chapters. There is a REAME in directory that describes the examples. All are examples from the text and include many eexamples that are not in Appendix A. Readers of previous editions will notice that most of the examples are reworked examples from the fifth edition to be compatible with OpenGL 3.1. The old code is on this website and makes an interesting comparison.
 
 The Common directory has only the InitShader source code.
