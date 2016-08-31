@@ -38,6 +38,23 @@ else ()
         ${GLUT_INCLUDE_DIR}
         ${GLEW_INCLUDE_DIR}
         )
+  else ()
+    if (NOT OPENGL_FOUND)
+          MESSAGE (STATUS "OPENGL and/or OPENGL-development subsystems not found - please install")
+    endif ()
+
+    if (NOT GLUT_FOUND)
+          MESSAGE (STATUS "GLUT and/or GLUT-development subsystems not found - please install")
+    endif ()
+    if (NOT GLUT_Xmu_LIBRARY)
+          MESSAGE (STATUS "GLUT Xmu and/or GLUT Xmu development subsystems not found - please install")
+    endif ()
+    if (NOT GLUT_Xi_LIBRARY)
+          MESSAGE (STATUS "GLUT Xi and/or GLUT Xi development subsystems not found - please install")
+    endif()
+    if (NOT GLEW_FOUND)
+          MESSAGE (STATUS "GLEW and/or GLEW development subsystems not found - please install")
+    endif()
   endif ()
 endif ()
 
