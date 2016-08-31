@@ -1,6 +1,6 @@
-README FROM CHRIS SUMMA:
+Modified README FROM CHRIS SUMMA:
 
-I have modified Dr. Angel's code in such a way that the same program should be compilable on either MacOS, Windows, or Linux.  I've also put all this under the control of CMake, a meta-build system that checks your environment and automatically builds your makefiles.  Here's what to do after you've installed CMake on your system:
+I have modified Chris Summa's modification of Dr. Angel's code in such a way that the same program should be compilable for Windows with Visual Studio.  Here's what to do after you've installed CMake on your system:
 
 1) make a subdirectory of graphics_angel called "build"
 
@@ -13,40 +13,21 @@ I have modified Dr. Angel's code in such a way that the same program should be c
 3) execute CMake using the CMakfiles.txt one level below
 
     cmake ..
+    
+    or explicitly run:
+    cmake -G "Visual Studio 14 2015" ..
 
 4) fix any errors or install any missing libraries
 
-5) from within the build subdirectory issue issue the make command
+5) Open angelcode.sln in Visual Studio
 
-    make
+6) Switch your Solution Configuration from Debug to Release
 
-6) this should build your binaries and put them in graphics_angel/bin
+7) set the environment variable ANGELDIR to point to graphics_angel
 
-7) add that bin diretory to your path
+    In your Environment Variables set ANGELDIR to
 
-    export PATH=$PATH:/path/to/where/it/lives/graphics_angel/bin
-
-8) set the environment variable ANGELDIR to point to graphics_angel
-
-    i.e. in your .bash_profile in your home directory add the line
-
-    export ANGELDIR=/path/to/where/it/lives/graphics_angel
-
-
-SYSTEMS:
-
-	OSX:  Should work just fine as long as XCode has been installed
-
-	LINUX:  Should work just fine but you'll have to install extra packages.		On Ubuntu:
-
-		sudo apt-get install freeglut3 freeglut3-dev libglew1.5 libglew1.5-dev libglu1-mesa libglu1-mesa-dev libgl1-mesa-glx libgl1-mesa-dev cmake libxmu-dev libxi-dev
-
-           On Centos:
-
-		sudo yum install cmake freeglut freeglut-devel glew glew-devel mesa-libGLU mesa-libGLU-devel glx-utils libXmu libXmu-devel libXi libXi-devel
-
-
-	Windoze:  Working on testing native Windoze.  I can, however, confirm that this works in a VMWare virtualized Ubuntu or Centos distribuion on Mac and Windoze.
+    ANGELDIR=/path/to/where/it/lives/graphics_angel
 
 
 README FROM EDWARD ANGEL:
