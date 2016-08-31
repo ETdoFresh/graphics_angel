@@ -109,7 +109,7 @@ init( void )
     // Load shaders and use the resulting shader program
 	std::string evname = "ANGELDIR";
 	std::string path = getEnvironmentVariable(evname);
-	path += "/shaders/";
+	path += "/shaders";
 #ifdef __APPLE__
 	path += "/MAC_VERSIONS/";
 #else

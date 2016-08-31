@@ -1,5 +1,5 @@
-atttribute  vec4 vPosition;
-atttribute  vec4 vColor;
+attribute  vec4 vPosition;
+attribute  vec4 vColor;
 varying vec4 color;
 
 void main() 
