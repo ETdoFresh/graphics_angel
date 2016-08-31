@@ -1,1 +1,11 @@
-../../APPENDIX_A_EXAMPLES/WINDOWS_VERSIONS/fshader_a6.glsl
+#version 150 
+
+
+in  vec4 color;
+out vec4 fColor;
+
+void main() 
+{ 
+    fColor = color;
+} 
+

@@ -1,1 +1,9 @@
-../../CHAPTER10_CODE/WINDOWS_VERSIONS/vshader102.glsl
+
+#version 150
+
+in  vec4 vPosition;
+
+void main() 
+{
+    gl_Position = vPosition;
+} 

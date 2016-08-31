@@ -1,1 +1,13 @@
-../../CHAPTER09_CODE/WINDOWS_VERSIONS/fshader92.glsl
+
+#version 150
+
+in  vec2 texCoord;
+out vec4 fColor;
+
+uniform sampler2D texture;
+
+void main() 
+{ 
+    fColor = texture2D( texture, texCoord );
+} 
+

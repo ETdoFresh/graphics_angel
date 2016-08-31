@@ -1,1 +1,14 @@
-../../CHAPTER08_CODE/WINDOWS_VERSIONS/vshader81.glsl
+#version 150 
+
+in  vec4 vPosition;
+in  vec4 vColor;
+out vec4 color;
+
+uniform mat4 ModelView;
+uniform mat4 Projection;
+
+void main() 
+{
+    color = vColor;
+    gl_Position = Projection * ModelView * vPosition;
+} 

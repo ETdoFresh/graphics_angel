@@ -1,1 +1,9 @@
-../../APPENDIX_A_EXAMPLES/WINDOWS_VERSIONS/vshader_a3.glsl
+#version 150
+
+in vec4 vPosition;
+
+void
+main()
+{
+    gl_Position = vPosition;
+}
