@@ -4,7 +4,7 @@ project (angelcode)
 set (VERSION_MAJOR 1)
 set (VERSION_MINOR 0)
 # set(CMAKE_CXX_FLAGS "-g -Wall -pedantic -fno-inline -Wno-deprecated -Wpointer-arith -Wcast-qual -Wcast-align -DEXCEPTIONS_VERBOSE")
-set(CMAKE_CXX_FLAGS "-g2 -Wno-deprecated")
+set(CMAKE_CXX_FLAGS "-g2")
 # #set(CMAKE_CXX_FLAGS "-O3")
 # following sets the variables OPENGL_INCLUDE_DIR amd OPENGL_LIBRARIES
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMake/Modules/")
