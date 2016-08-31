@@ -29,6 +29,9 @@ I have modified Chris Summa's modification of Dr. Angel's code in such a way tha
 
     ANGELDIR=/path/to/where/it/lives/graphics_angel
 
+8) Build Project ALL_BUILD in order to build all examples into /bin/Release
+
+    The appropriate DLLs should already be included in this directory
 
 README FROM EDWARD ANGEL:
 
