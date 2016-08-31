@@ -20,7 +20,7 @@ std::string getEnvironmentVariable ( const std::string& _evname )
     const char* convEVName = _evname.c_str();
     char* pEVString = getenv(convEVName);
     if (pEVString == 0)
-    {   std::cout << "Environment variable " << _evname << " undefined." << std::endl;
+    {   std::cout << "Environment variable " << convEVName << " undefined." << std::endl;
         std::cout << "Please set it properly and re-execute the program." << std::endl;
         exit(1);
     }

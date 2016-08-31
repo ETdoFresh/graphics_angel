@@ -1,1 +1,9 @@
-../../CHAPTER10_CODE/WINDOWS_VERSIONS/fshader104.glsl
+#version 150 
+
+varying vec4 color;
+void main() 
+{ 
+  gl_FragColor = color;
+} 
+
+
