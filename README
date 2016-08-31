@@ -33,6 +33,17 @@ I have modified Dr. Angel's code in such a way that the same program should be c
     export ANGELDIR=/path/to/where/it/lives/graphics_angel
 
 
+SYSTEMS:
+
+	OSX:  Should work just fine as long as XCode has been installed
+
+	LINUX:  Should work just fine but you'll have to install extra packages.		On Ubuntu:
+
+		sudo apt-get install freeglut3 freeglut3-dev libglew1.5 libglew1.5-dev libglu1-mesa libglu1-mesa-dev libgl1-mesa-glx libgl1-mesa-dev cmake libxmu-dev libxi-dev
+
+
+	Windoze:  Working on testing native Windoze.  I can, however, confirm that this works in a VMWare virtualized Ubuntu distribuion on Mac and Windoze.
+
 
 README FROM EDWARD ANGEL:
 
