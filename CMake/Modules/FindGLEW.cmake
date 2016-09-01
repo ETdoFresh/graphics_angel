@@ -21,6 +21,7 @@ IF (WIN32)
 					${PROJECT_SOURCE_DIR}/src/nvgl/glew/lib
                     ${CMAKE_SOURCE_DIR}/lib/windows
 					DOC "The GLEW library")
+	FIND_LIBRARY( GLEW_LIBRARY_DEBUG glew32d ${CMAKE_SOURCE_DIR}/lib/windows)
 ELSE (WIN32)
 	FIND_PATH( GLEW_INCLUDE_PATH GL/glew.h
  				/usr/include
@@ -47,3 +48,10 @@ ENDIF (WIN32)
 	ENDIF (GLEW_INCLUDE_PATH)
 
 	MARK_AS_ADVANCED( GLEW_FOUND )
+
+IF (GLEW_FOUND)
+  SET( GLEW_LIBRARIES
+    ${GLEW_LIBRARY}
+    ${GLEW_LIBRARY_DEBUG}
+    )
+ENDIF(GLUT_FOUND)

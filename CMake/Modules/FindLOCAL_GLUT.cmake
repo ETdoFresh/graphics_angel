@@ -31,7 +31,8 @@ IF (WIN32)
     ${OPENGL_LIBRARY_DIR}
     ${GLUT_ROOT_PATH}/Release
     ${CMAKE_SOURCE_DIR}/lib/windows
-    )
+	)
+  FIND_LIBRARY( GLUT_glut_LIBRARY_DEBUG freeglutd ${CMAKE_SOURCE_DIR}/lib/windows)
 ELSE (WIN32)
   
   IF (APPLE)
@@ -79,6 +80,7 @@ IF (GLUT_FOUND)
     ${GLUT_Xmu_LIBRARY}
     ${GLUT_Xi_LIBRARY}
     ${GLUT_cocoa_LIBRARY}
+	${GLUT_glut_LIBRARY_DEBUG}
     )
     
   #The following deprecated settings are for backwards compatibility with CMake1.4
