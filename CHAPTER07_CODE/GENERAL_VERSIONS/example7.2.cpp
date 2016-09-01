@@ -144,17 +144,17 @@ void init()
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_TEXTURE_CUBE_MAP);
 
-   glGenTextures(1, tex);
-   glActiveTexture(GL_TEXTURE1);
-   glBindTexture(GL_TEXTURE_CUBE_MAP, tex[0]);
+    glGenTextures(1, tex);
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, tex[0]);
 
-   glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X ,0,3,1,1,0,GL_RGB,GL_UNSIGNED_BYTE, red);
-   glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_X ,0,3,1,1,0,GL_RGB,GL_UNSIGNED_BYTE, green);
-   glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Y ,0,3,1,1,0,GL_RGB,GL_UNSIGNED_BYTE, blue);
-   glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Y ,0,3,1,1,0,GL_RGB,GL_UNSIGNED_BYTE, cyan);
-   glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Z ,0,3,1,1,0,GL_RGB,GL_UNSIGNED_BYTE, magenta);
-   glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Z ,0,3,1,1,0,GL_RGB,GL_UNSIGNED_BYTE, yellow);
-   glTexParameteri(GL_TEXTURE_CUBE_MAP,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X ,0,3,1,1,0,GL_RGB,GL_UNSIGNED_BYTE, red);
+    glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_X ,0,3,1,1,0,GL_RGB,GL_UNSIGNED_BYTE, green);
+    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Y ,0,3,1,1,0,GL_RGB,GL_UNSIGNED_BYTE, blue);
+    glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Y ,0,3,1,1,0,GL_RGB,GL_UNSIGNED_BYTE, cyan);
+    glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Z ,0,3,1,1,0,GL_RGB,GL_UNSIGNED_BYTE, magenta);
+    glTexImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Z ,0,3,1,1,0,GL_RGB,GL_UNSIGNED_BYTE, yellow);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
 
     // Create a vertex array object
     GLuint vao;
@@ -166,21 +166,21 @@ void init()
     glBindVertexArray( vao );
 #endif
 
-   loc = glGetAttribLocation(program, "vPosition");
-   glEnableVertexAttribArray(loc);
-   glVertexAttribPointer(loc, 4, GL_FLOAT, GL_TRUE, 0, points);
-   loc2 = glGetAttribLocation(program, "Normal");
-   glEnableVertexAttribArray(loc2);
-   glVertexAttribPointer(loc2, 4, GL_FLOAT, GL_TRUE, 0, normals);
-   ctm_loc = glGetUniformLocation(program, "ModelView");
-   projection_loc = glGetUniformLocation(program, "Projection");
+    loc = glGetAttribLocation(program, "vPosition");
+    glEnableVertexAttribArray(loc);
+    glVertexAttribPointer(loc, 4, GL_FLOAT, GL_TRUE, 0, points);
+    loc2 = glGetAttribLocation(program, "Normal");
+    glEnableVertexAttribArray(loc2);
+    glVertexAttribPointer(loc2, 4, GL_FLOAT, GL_TRUE, 0, normals);
+    ctm_loc = glGetUniformLocation(program, "ModelView");
+    projection_loc = glGetUniformLocation(program, "Projection");
 
-   glUniformMatrix4fv(projection_loc, 16, GL_TRUE, projection);
+    glUniformMatrix4fv(projection_loc, 16, GL_TRUE, projection);
 
     // Load shaders and use the resulting shader program
     std::string evname = "ANGELDIR";
     std::string path = getEnvironmentVariable(evname);
-    path += "/shaders/";
+    path += "/shaders";
 #ifdef __APPLE__
     path += "/MAC_VERSIONS/";
 #else
@@ -204,7 +204,7 @@ void init()
     glBufferSubData( GL_ARRAY_BUFFER, sizeof(points), sizeof(normals), normals );
 
 
-   glClearColor(1.0,1.0,1.0,1.0);
+    glClearColor(1.0,1.0,1.0,1.0);
 }
 
 int

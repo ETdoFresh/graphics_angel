@@ -13,7 +13,7 @@ void main()
     vec4 eyePos  = ModelView*vPosition;
     
     vec4 NN = ModelView*Normal;
-    vec3 N =NN.xyz;
+    vec3 N = NN.xyz;
     R = reflect(eyePos.xyz, N);
 
 

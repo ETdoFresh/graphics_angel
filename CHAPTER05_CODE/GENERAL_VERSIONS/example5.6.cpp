@@ -90,8 +90,13 @@ init()
 
     // Create a vertex array object
     GLuint vao;
+#ifdef __APPLE__
     glGenVertexArraysAPPLE( 1, &vao );
     glBindVertexArrayAPPLE( vao );
+#else
+    glGenVertexArrays( 1, &vao );
+    glBindVertexArray( vao );
+#endif
 
     // Create and initialize a buffer object
     GLuint buffer;
@@ -104,7 +109,18 @@ init()
 		     sizeof(normals), normals );
 
     // Load shaders and use the resulting shader program
-    GLuint program = InitShader( "vshader56.glsl", "fshader56.glsl" );
+    std::string evname = "ANGELDIR";
+    std::string path = getEnvironmentVariable(evname);
+    path += "/shaders";
+#ifdef __APPLE__
+    path += "/MAC_VERSIONS/";
+#else
+    path += "/WINDOWS_VERSIONS/";
+#endif
+    std::string vshader = path + "vshader56.glsl";
+    std::string fshader = path + "fshader56.glsl";
+    GLuint program = InitShader( vshader.c_str(), fshader.c_str() );
+
     glUseProgram( program );
 	
     // set up vertex arrays
@@ -221,7 +237,20 @@ main( int argc, char **argv )
     glutInit( &argc, argv );
     glutInitDisplayMode( GLUT_RGBA | GLUT_DEPTH );
     glutInitWindowSize( 512, 512 );
+
+#ifndef __APPLE__
+    glutInitContextVersion(3, 2);
+    glutInitContextProfile(GLUT_CORE_PROFILE);
+#endif
+
     glutCreateWindow( "Sphere" );
+
+#ifdef GLEW_EXPERIMENTAL
+    glewExperimental = GL_TRUE;
+#endif
+#ifndef __APPLE__
+    glewInit();
+#endif
 
 
     init();
