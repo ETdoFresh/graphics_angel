@@ -1,6 +1,6 @@
-README FROM CHRIS SUMMA:
+Modification of README CHRIS SUMMA BY EDWARD GARCIA:
 
-I have modified Dr. Angel's code in such a way that the same program should be compilable on either MacOS, Windows, or Linux.  I've also put all this under the control of CMake, a meta-build system that checks your environment and automatically builds your makefiles.  Here's what to do after you've installed CMake on your system:
+I have modified Chris Summa's modification of Dr. Angel's code in such a way that the same program should be compilable for Windows with Visual Studio.  Here's what to do after you've installed CMake on your system:
 
 1) make a subdirectory of graphics_angel called "build"
 
@@ -12,42 +12,26 @@ I have modified Dr. Angel's code in such a way that the same program should be c
 
 3) execute CMake using the CMakfiles.txt one level below
 
-    cmake ..
+    cmake .. 
+    
+    By default, Windows will cmake to "Visual Studio 14 2015" or you can explicitly run:
+    cmake -G "Visual Studio 14 2015" ..
 
 4) fix any errors or install any missing libraries
 
-5) from within the build subdirectory issue issue the make command
+5) Open angelcode.sln in Visual Studio
 
-    make
+6) set the environment variable ANGELDIR to point to graphics_angel
 
-6) this should build your binaries and put them in graphics_angel/bin
+    In your Environment Variables set ANGELDIR to
 
-7) add that bin diretory to your path
+    ANGELDIR=/path/to/where/it/lives/graphics_angel
 
-    export PATH=$PATH:/path/to/where/it/lives/graphics_angel/bin
+8) Build Project ALL_BUILD in order to build all examples into /bin/ folder
 
-8) set the environment variable ANGELDIR to point to graphics_angel
+    The appropriate DLLs should already be included in this directory
 
-    i.e. in your .bash_profile in your home directory add the line
-
-    export ANGELDIR=/path/to/where/it/lives/graphics_angel
-
-
-SYSTEMS:
-
-	OSX:  Should work just fine as long as XCode has been installed
-
-	LINUX:  Should work just fine but you'll have to install extra packages.		On Ubuntu:
-
-		sudo apt-get install freeglut3 freeglut3-dev libglew1.5 libglew1.5-dev libglu1-mesa libglu1-mesa-dev libgl1-mesa-glx libgl1-mesa-dev cmake libxmu-dev libxi-dev
-
-           On Centos:
-
-		sudo yum install cmake freeglut freeglut-devel glew glew-devel mesa-libGLU mesa-libGLU-devel glx-utils libXmu libXmu-devel libXi libXi-devel
-
-
-	Windoze:  Working on testing native Windoze.  I can, however, confirm that this works in a VMWare virtualized Ubuntu or Centos distribuion on Mac and Windoze.
-
+8a) If you would like to run just one project directly from Visual Studio, Right-Click a Project in Solution Explorer and Set as Startup Project.
 
 README FROM EDWARD ANGEL:
 
